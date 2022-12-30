@@ -1,7 +1,9 @@
+import Create from "./Create";
+
 import Image from "next/image";
 import Link from "next/link";
 import { BiDotsVertical, BiLinkAlt } from "react-icons/bi";
-import { ShortcutContainer } from "styles/home.styles";
+import { ShortcutContainer } from "./styles";
 import { ShortcutModel } from "utils/types/models";
 
 function Shortcut({ name, link, img }: ShortcutModel) {
@@ -26,4 +28,10 @@ function Shortcut({ name, link, img }: ShortcutModel) {
   );
 }
 
+function Placeholder() {
+  return <div>add shortcut</div>;
+}
+
+Shortcut.Create = Create;
+Shortcut.Placeholder = Placeholder;
 export default Shortcut;

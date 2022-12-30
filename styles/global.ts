@@ -27,4 +27,21 @@ export const GlobalStyles = createGlobalStyle`
     a, button {
         color: inherit;
     }
+
+    label {
+        position: relative;
+    }
+
+    input {
+        width: 100%;
+    }
+    
+    input[type="file"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
 `;

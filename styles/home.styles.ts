@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Layout from "components/Layouts";
-import colors from "./colors";
 
 export const HomeContainer = styled(Layout)`
   .clock-overlay {
@@ -55,77 +54,81 @@ export const HomeContainer = styled(Layout)`
   }
 
   .form {
+    width: max-content;
     display: flex;
     flex-flow: column;
-    gap: 0.25em;
-  }
-`;
+    gap: 0.5em;
+    margin: 2em 0;
 
-export const ShortcutContainer = styled.div`
-  position: relative;
+    .form-container {
+      font-size: 0.8em;
+      display: flex;
+      align-items: center;
+      gap: 1em;
 
-  .menu {
-  }
-
-  .options {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 2em;
-    width: 2em;
-    z-index: 2;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-  }
-
-  .content {
-    text-decoration: none;
-    display: flex;
-    flex-flow: column;
-    overflow: hidden;
-    max-width: calc(480px / 5 - 1em);
-
-    .shortcut-head {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      background: #333;
-      border-radius: 5px;
-      overflow: hidden;
-      aspect-ratio: 1/1;
-
-      .overlay {
-        position: absolute;
-        display: grid;
-        place-items: center;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #0e0e10;
-        opacity: 0;
-        transition: opacity 0.15s;
-      }
-      :hover .overlay {
-        opacity: 0.8;
-      }
-
-      .img {
-        object-fit: cover;
-        object-position: center;
+      .form-right {
+        display: flex;
+        flex-flow: column;
+        gap: 0.25em;
       }
     }
 
-    .shortcut-name {
-      padding: 0.5em 0 0 0.25em;
-      font-size: 0.75em;
+    label {
       width: 100%;
-      white-space: pre;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      font-weight: bold;
+
+      .img-container {
+        --size: 5em;
+        cursor: pointer;
+        position: relative;
+        width: var(--size);
+        height: var(--size);
+        background: #fff1;
+        border-radius: 9999px;
+        overflow: hidden;
+        border: 2px solid #555;
+
+        .overlay {
+          display: grid;
+          place-items: center;
+          background: #fff3;
+          height: 100%;
+          left: 0;
+          opacity: 0;
+          position: absolute;
+          top: 0;
+          transition: opacity 0.15s;
+          width: 100%;
+          z-index: 2;
+        }
+
+        .img {
+          object-fit: cover;
+          object-position: center;
+        }
+
+        :hover {
+          .overlay {
+            opacity: 1;
+          }
+        }
+      }
+
+      .right {
+        input {
+          font-size: 0.95em;
+          border-radius: 5px;
+          padding: 0.5em 0.75em;
+          border: none;
+          background: #fff1;
+          color: #fff;
+        }
+      }
+    }
+    .name {
+      width: 13em;
+    }
+    .url {
+      width: 17em;
     }
   }
 `;

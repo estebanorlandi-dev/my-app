@@ -1,16 +1,16 @@
-import { useClock } from "hooks";
 import Head from "next/head";
 
-import Shortcut from "components/Home/Shortcut";
-import { HomeContainer } from "styles/home.styles";
+import Shortcut from "components/Shortcuts";
+
+import { useClock } from "hooks";
 import { ShortcutModel } from "utils/types/models";
-import Placeholder from "componentes/Placeholder";
-import CreateShortcut from "components/CreateShortcut";
+import { HomeContainer } from "styles/home.styles";
 
 const shortcuts: ShortcutModel[] = Array.from({ length: 8 }).map((_, i) => ({
+  $id: String(i) + Math.floor(Math.random() * 1000),
   name: `shortcut ${i}`,
   link: `http://localhost:3001#shortcut-${i}`,
-  img: `https://picsum.photos/200/300?random=${i}`,
+  img: `https://picsum.photos/id/${Math.floor(Math.random() * 100)}/200/300`,
 }));
 
 export default function Home() {
@@ -45,14 +45,12 @@ export default function Home() {
               shortcuts[i] ? (
                 <Shortcut {...shortcuts[i]} key={shortcuts[i].name} />
               ) : (
-                <Placeholder>
-                  <p>add shortcut</p>
-                </Placeholder>
+                <Shortcut.Placeholder />
               )
             )}
           </ul>
 
-          <CreateShortcut className="form" />
+          <Shortcut.Create className="form" />
         </div>
 
         <div className="bottom"></div>
